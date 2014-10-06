@@ -1,8 +1,9 @@
 class tree:
+	__slots__ = ['val', 'left', 'right']
 	def __init__(self, val):
 		self.val = val
-		self.left = left
-		self.right = right
+		self.left = None
+		self.right = None
 
 class node:
 	def __init__(self, val):
