@@ -6,6 +6,7 @@ class tree:
 		self.right = None
 
 class node:
+	__slots__ = ['val', 'pre', 'next']
 	def __init__(self, val):
 		self.val = val
 		self.pre = None
@@ -66,7 +67,7 @@ def TraversalRec(root, res, oder):
 		if oder == 'post':
 			res.append(root.val)
 		
-def preorder_inorder_Traversal(root, oder)
+def preorder_inorder_Traversal(root, oder):
 	res, stack = [], []
 	while stack or root:
 		if root:
@@ -124,9 +125,10 @@ def levelTraversalRec(root):
 	help(root, 0)
 	return res
 	
-#将二叉查找树变为有序的双向链表
 def convertBST2DLLRec(root):
+	return None
 def convertBST2DLL(root):
+	return None
 	
 	
 	
@@ -140,8 +142,13 @@ def convertBST2DLL(root):
 	
 	
 	
-#求二叉树第K层的节点数	
 def getNodeNumKthLevelRec(root):
+	return None
+	
+	
+	
+	
+	
 def getNodeNumKthLevel(root, k):
 	if root is None:
 		return 0
@@ -164,7 +171,6 @@ def getNodeNumKthLevel(root, k):
 	return temp
 	
 	
-#求二叉树中叶子节点的个数
 def getNodeNumLeafRec(root):
 	if root is None:
 		return 0
@@ -189,7 +195,7 @@ def isSameRec(r1, r2):
 		return (not r1 and not r2) or (r1 and r2 and r1.val == r2.val and isSameRec(r1.left, r2.left) and isSameRec(r1.right, r2.right))
 		
 def isSame(r1, r2):
-	
+	return None
 	
 	
 	
@@ -219,7 +225,7 @@ def mirrorRec(root):
 	return res_root
 
 def mirror(root):
-
+	return None
 
 
 
@@ -237,7 +243,7 @@ def mirrorCopyRec(root):
 		root.right = temp
 		
 def mirrorCopy(root):
-	
+	return None
 	
 	
 	
@@ -249,8 +255,7 @@ def isMirrorRec(r1, r2):
 	return (not r1 and not r2) or (r1 and r2 and r1.val == r2.val and isMirrorRec(r1.left, r2.right) and isMirror(r1.right, r2.left))
 	
 def isMirror(r1, r2):
-	
-	
+	return None
 	
 	
 	
@@ -339,6 +344,41 @@ def isCompleteBinaryTree(root):
 	return True
 	
 	
-#找出二叉树中最长连续子串(即全部往左的连续节点，或是全部往右的连续节点）
+
 def findLongest(root):
+	if root is None:
+		return -1
+	l,lhead = 0, root
+	while lhead:
+		l += 1
+		lhead = lhead.left
 	
+	r, rhead = 0, root
+	while rhead:
+		r += 1
+		rhead = rhead.right
+	
+	left_max = findLongest(root.left)
+	right_max = findLongest(root.right)
+	
+	return max(l ,r, left_max, right_max)
+	
+	
+t1 = tree(0)
+t2 = tree(1)
+t3 = tree(2)
+t4 = tree(3)
+t5 = tree(4)
+t6 = tree(5)
+t7 = tree(6)
+t8 = tree(7)
+t9 = tree(8)
+
+t1.left = t2
+t1.right = t3
+t2.left = t4
+t2.right = t5
+t3.left = t6
+t3.right = t7
+t4.left = t8
+t5.right = t9
